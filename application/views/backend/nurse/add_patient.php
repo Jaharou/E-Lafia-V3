@@ -1,0 +1,241 @@
+<?php
+/* 	
+ * 	Tamplate: Add Patient
+ * 	@author : Raju Ahmed
+ * 	Date	: 20 August, 2021
+ */
+if ( ! defined( 'BASEPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
+?>
+<?php $output = ''; ?>
+<?php ob_start(); ?>
+<div class="row">
+    <div class="col-md-12">
+		<div class="panel">
+             
+			<div style="clear:both;"></div>						
+			<div class="panel-body p-20">
+            <?php $patient_id = $this->db->count_all('patient')+1; ?>
+			<form method="post" action="<?php echo base_url(); ?>receptionist/patient/create" class="p-5" id="form-validate" enctype="multipart/form-data">
+                       
+                  <div class="panel panel-heading panel-info">
+                    <div class="panel-title" style="text-align:center;">
+                        <i class="entypo-plus-circled"></i>
+                        <?php echo get_phrase('informations générales'); ?>
+                    </div>
+                    </div><br>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('référence'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="patient_id"  data-validation="" value="<?php echo "0".$patient_id; ?>" readonly >
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('civilité'); ?></label>
+                            <select name="civilite" id="js-states" class="form-control">
+                                    <optgroup >
+                            <option value="M"><?php echo get_phrase('M'); ?></option>
+                                <option value="Mlle"><?php echo get_phrase('Mlle'); ?></option>
+                                <option value="Mme"><?php echo get_phrase('Mme'); ?></option>
+                                    </optgroup>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('nom'); ?><sup class="color-danger">*</sup></label>
+                                <input type="text" class="form-control" id="name13" name="name"  data-validation="required">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="prenom"><?php echo get_phrase('prénom'); ?><sup class="color-danger">*</sup></label>
+                                <input type="text" class="form-control" id="prenom" name="prenom"  data-validation="required">
+                            </div>
+                        </div>  
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="birth_date"><?php echo get_phrase('date_de_naissance'); ?><sup class="color-danger">*</sup></label>
+                                <input type="date" class="form-control" id="birth_date" name="birth_date"  data-validation="required" placeholder="dd-mm-yyyy">
+                            </div>
+                        </div>
+                         <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="age"><?php echo get_phrase('age'); ?><sup class="color-danger"></sup></label>
+                                <input type="number" class="form-control" id="age" name="age" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('sexe'); ?><sup class="color-danger"></sup></label>
+                                <select name="sex" class="form-control" id="js-states"  data-validation="">
+                                    <optgroup> 
+                                <option class="fa fa-male" aria-hidden="true"><?php echo get_phrase('masculin'); ?></option>
+                                <option class="fa fa-male" aria-hidden="true"><?php echo get_phrase('feminin'); ?></option>
+                                    </optgroup>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="name13"><?php echo get_phrase('situation_familiale'); ?><sup class="color-danger"></sup></label>
+                                <select name="situation_famil" class="form-control" id="js-states"  data-validation="">
+                                    <optgroup>
+                                <option value="Celibataire"><?php echo get_phrase('Celibataire'); ?></option>
+                            <option value="Marié"><?php echo get_phrase('Marié(e)'); ?></option>
+                            <option value="Divorcé"><?php echo get_phrase('divorcé(e)'); ?></option>
+                            <option value="Veuf(ve)"><?php echo get_phrase('Veuf(ve)'); ?></option>
+                            </optgroup>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="profession"><?php echo get_phrase('profession'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="profession" name="profession"  data-validation="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="department_id"><?php echo get_phrase('groupe_sanguin'); ?></label>
+                                <select name="blood_group" class="form-control" id="js-states"  data-validation="">
+                               <optgroup label="<?php echo get_phrase('sélectionner_un_groupe_sanguin'); ?>">  
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                </optgroup>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('photo'); ?></label>
+                                <input type="file" class="form-control" id="name13" name="image">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('téléphone_patient'); ?></label>
+                                <input type="text" class="form-control" id="name13" name="phone"  data-validation="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('adresse'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="address_patient"  data-validation="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('email'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="email"  data-validation="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('password'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="password"  data-validation="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('personne_à_contacter'); ?></label>
+                                <input type="text" class="form-control" id="js-states" name="personne_contacter"  data-validation="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('tél_personne_à_contacter'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="tel_contacter"  data-validation="">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('Médecin_traitant'); ?></label>
+                                <select name="doctor_id" class="form-control" id="name13"  data-validation="">
+                                    <optgroup>
+                                <option></option>
+                          <?php $doctors = $this->db->get('doctor')->result_array();
+                            foreach ($doctors as $row2):?>
+                                <option value="<?php echo $row2['doctor_id']; ?>">
+                                    <?php echo $row2['name']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                                    </optgroup>
+                                </select>  
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('categorie'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="categorie"  data-validation="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('services'); ?><sup class="color-danger"></sup></label>
+                                <select name="service_id" class="form-control" id="name13"  data-validation="">
+                                    <optgroup>
+                             <option></option>  
+                             <?php $services = $this->db->get('services')->result_array();
+                            foreach ($services as $row2):?>
+                                <option value="<?php echo $row2['service_id']; ?>">
+                                <?php echo $row2['service_title']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                                    </optgroup>
+                                </select>  
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name13"><?php echo get_phrase('assurance'); ?><sup class="color-danger"></sup></label>
+                                <input type="text" class="form-control" id="name13" name="assurance"  data-validation="">
+                            </div>
+                        </div>  
+                                          
+                        <div class="col-md-12">
+                            <div class="btn-group pull-right mt-10" role="group">
+                                <button type="reset" class="btn btn-gray btn-wide"><i class="fa fa-times"></i>Annuler</button>
+                                <button type="submit" class="btn bg-black btn-wide"><i class="fa fa-arrow-right"></i>Sauvegarder</button>
+                            </div>                
+                        </div>
+                   </form>	
+			</div>				
+		</div>				
+	</div>				
+</div>
+
+<script>
+    //Obtenez l'élément de formulaire de la date de naissance et d'âge
+        var birth_dateInput = document.getElementById("birth_date");
+        var ageInput = document.getElementById("age");
+        // Ajouter un écouteur d'événements pour la modification de la date de naissance
+        birth_dateInput.addEventListener("change", function() {
+            // Obtenez la date de naissance à partir de l'élément de formulaire
+            var birth_date = new Date(birth_dateInput.value);
+
+            // Obtenez l'année actuelle
+            var anneeActuelle = new Date().getFullYear();
+
+            // Calculez l'âge en soustrayant l'année de naissance de l'année actuelle
+            var age = anneeActuelle - birth_date.getFullYear();
+            // Mettre à jour automatiquement le champ d'âge
+            ageInput.value = age;
+        });
+</script>
+
+<?php 
+$output .= ob_get_clean();
+echo $output;

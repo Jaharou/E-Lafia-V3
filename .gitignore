@@ -1,0 +1,54 @@
+# ==========================================
+# E-Lafia V3 - CodeIgniter 3
+# ==========================================
+
+# Logs
+error_log
+application/logs/*
+!application/logs/index.html
+
+# Cache
+application/cache/*
+!application/cache/index.html
+
+# Session
+application/cache/sessions/*
+!application/cache/sessions/index.html
+
+# Uploads utilisateurs
+uploads/*
+!uploads/index.html
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.bak
+*.swp
+*.log
+
+# IDE / éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Environnement
+.env
+.env.*
+
+# Dépendances Composer
+/vendor/
+
+# Bases de données / sauvegardes locales
+*.sql
+*.sql.zip
+*.zip
+
+# Fichiers de test locaux
+test.php
+phpinfo.php 

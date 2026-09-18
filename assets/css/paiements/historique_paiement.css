@@ -1,0 +1,65 @@
+/* Info boxes statistiques */
+  .info-box-stat {
+    min-height: 80px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+    margin-bottom: 15px;
+  }
+  .info-box-stat .info-box-icon {
+    width: 70px;
+    line-height: 80px;
+    font-size: 28px;
+    border-radius: 4px 0 0 4px;
+  }
+  .info-box-stat .info-box-content {
+    padding: 10px 15px;
+  }
+  .info-box-stat .info-box-text {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+  }
+  .info-box-stat .info-box-number {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    display: block;
+    margin-top: 2px;
+  }
+  .info-box-total .info-box-number {
+    font-size: 20px;
+    color: #1a6fa3;
+  }
+  .bg-stat-payments { background: #f0f9ff; color: #1a6fa3; }
+  .bg-stat-invoice  { background: #fff8e1; color: #e65100; }
+  .bg-stat-examen   { background: #f1f8e9; color: #2e7d32; }
+  .bg-stat-total    { background: #e8f4fd; color: #1a6fa3; }
+
+  /* Badges source */
+  .badge-facture {
+    background: #e65100; color: #fff;
+    padding: 4px 8px; border-radius: 3px; font-size: 11px; font-weight: 700;
+  }
+  .badge-examen {
+    background: #2e7d32; color: #fff;
+    padding: 4px 8px; border-radius: 3px; font-size: 11px; font-weight: 700;
+  }
+
+  /* Montants */
+  .montant-cell {
+    font-weight: 600;
+    color: #1a6fa3;
+    white-space: nowrap;
+  }
+
+  /* Colonne montant alignée à droite */
+  #table-paiements td:nth-child(7),
+  #table-paiements th:nth-child(7) {
+    text-align: right;
+  }
+
+  /* Label résultats */
+  #label-resultats {
+    font-size: 13px !important;
+  }
